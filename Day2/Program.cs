@@ -18,30 +18,28 @@ namespace Assignments1
             e1.NAME = "akshay";
             Console.WriteLine(e1.NAME);
 
-
+            Console.WriteLine();
 
             e.BASIC = 190000;
             Console.WriteLine("basic salary = "+ e.BASIC);
 
             e.BASIC = 19000000;
 
+            Console.WriteLine();
+
             e.DEPTNO = 1;
             Console.WriteLine("department no is "+ e.DEPTNO);
 
             e.DEPTNO = -2;
-
+            Console.WriteLine();
             Employee o1 = new Employee("Amol", 123465, 10);
             Employee o2 = new Employee("Amol", 123465);
             Employee o3 = new Employee("Amol");
 
-
+            Console.WriteLine();
             Employee o4 = new Employee();
             Employee o5 = new Employee();
             Employee o6 = new Employee();
-           
-
-
-            Console.WriteLine("netsalary is "+e.GetNetSalary());
 
             Console.ReadLine();
         }
@@ -58,25 +56,35 @@ namespace Assignments1
 
         public Employee(string NAME,decimal BASIC,short DEPTNO)
         {
+
+            EmpNo++;
+            Console.WriteLine("employee no = " + EmpNo);
+
             this.NAME = NAME;
             this.BASIC = BASIC;
             this.DEPTNO = DEPTNO;
 
-            Console.WriteLine(NAME+" "+BASIC+" "+DEPTNO );
+            Console.WriteLine(NAME+" "+BASIC+" "+DEPTNO+ " netsalary is "+GetNetSalary() );
         }
 
         public Employee(string NAME, decimal BASIC)
         {
+            EmpNo++;
+            Console.WriteLine("employee no = " + EmpNo);
+
             this.NAME = NAME;
             this.BASIC = BASIC;
-            Console.WriteLine(NAME + " " + BASIC );
+            Console.WriteLine(NAME + " " + BASIC + " netsalary is " + GetNetSalary());
         }
 
         public Employee(string NAME)
         {
+            EmpNo++;
+            Console.WriteLine(" employee no = " + EmpNo);
+
             this.NAME = NAME;
 
-            Console.WriteLine(NAME );
+            Console.WriteLine(NAME + " netsalary is " + GetNetSalary());
         }
 
         #endregion
@@ -108,10 +116,9 @@ namespace Assignments1
 
         public static int EMPNO
         {
-            get
-            {
-                return EmpNo;
-            }
+       
+            get;
+           
         }
 
         private decimal Basic;
@@ -163,11 +170,11 @@ namespace Assignments1
         #region methods
         public decimal GetNetSalary()
         {
-            decimal basic = 100000;
+           
             decimal hra = 50000;
             decimal da = 40000;
 
-            decimal netSalary = basic + hra + da;
+            decimal netSalary = BASIC + hra + da;
 
             return netSalary;
         }
