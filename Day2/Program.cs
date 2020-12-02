@@ -28,6 +28,20 @@ namespace Assignments1
             Console.WriteLine();
             Console.WriteLine(o4.EMPNO);
             Console.WriteLine(o4.GetNetSalary());
+            Console.WriteLine("===================");
+
+            Console.WriteLine();
+            Console.WriteLine(o4.EMPNO);
+            Console.WriteLine(o4.GetNetSalary());
+            Console.WriteLine();
+            Console.WriteLine(o3.EMPNO);
+            Console.WriteLine(o3.GetNetSalary());
+            Console.WriteLine();
+            Console.WriteLine(o2.EMPNO);
+            Console.WriteLine(o2.GetNetSalary());
+            Console.WriteLine();
+            Console.WriteLine(o1.EMPNO);
+            Console.WriteLine(o1.GetNetSalary());
             Console.WriteLine();
             Console.ReadLine();
         }
