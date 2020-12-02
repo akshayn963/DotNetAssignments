@@ -148,7 +148,7 @@ namespace Assignment2
         public Manager(string NAME="noname",decimal BASIC=600000,short DEPTNO=5,String DESIGNATION="HR") : base(NAME,BASIC,DEPTNO)
         {
            
-            this.DESIGNATION = designation;
+            this.DESIGNATION =DESIGNATION;
             this.NAME = NAME;
             this.BASIC = BASIC;
             this.DEPTNO = DEPTNO;
