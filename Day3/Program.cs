@@ -11,12 +11,12 @@ namespace Assignment2
         static void Main()
         {
             Console.WriteLine("manager");
-            Manager m1 = new Manager("akshay", 7000000, 1, "HR");
+            Manager m1 = new Manager("akshay", 700000, 1, "HR");
             Console.WriteLine("name "+m1.NAME);
             Console.WriteLine("net salary == "+m1.CalNetSalary());
             Console.WriteLine("===========================================");
             Console.WriteLine("general manager");
-            GeneralManager gm1 = new GeneralManager("mahesh", 1000000, 1, "GM", "abccc");
+            GeneralManager gm1 = new GeneralManager("mahesh", 500000, 1, "GM", "abccc");
             Console.WriteLine("name " + gm1.NAME);
             Console.WriteLine("net salary == " + gm1.CalNetSalary());
             Console.WriteLine("===========================================");
@@ -29,12 +29,13 @@ namespace Assignment2
         }
     }
 
+    #region Employee
     public abstract class Employee
     {
         private string name;
         private int empNo;
         private short deptNo;
-        private decimal basic;
+        protected decimal basic;
         private int lastEmpNo=0;
 
         public String NAME
@@ -108,11 +109,26 @@ namespace Assignment2
         public abstract decimal CalNetSalary();
        
     }
+    #endregion
 
+    #region Manager
     public class Manager : Employee
     {
         
-        public override decimal BASIC { set; get; }
+        public override decimal BASIC 
+        { 
+            set 
+            {
+                if (value >= 10000 && value <= 1500000)
+                    basic = value;
+                else
+                    Console.WriteLine("Enter valid basic");
+            }
+            get 
+            {
+                return basic;
+            }
+        }
 
         private string designation;
         public string DESIGNATION
@@ -148,14 +164,16 @@ namespace Assignment2
         public Manager(string NAME="noname",decimal BASIC=600000,short DEPTNO=5,String DESIGNATION="HR") : base(NAME,BASIC,DEPTNO)
         {
            
-            this.DESIGNATION = designation;
+            this.DESIGNATION =DESIGNATION;
             this.NAME = NAME;
             this.BASIC = BASIC;
             this.DEPTNO = DEPTNO;
             
         }
     }
+    #endregion
 
+    #region GM
     public class GeneralManager : Manager
     {
         private string perks;
@@ -166,7 +184,7 @@ namespace Assignment2
             get;
            
         }
-
+       
         public GeneralManager(string NAME="noname", decimal BASIC=700000, short DEPTNO=3, String DESIGNATION="gm",string PERKS="xyz"):base(NAME, BASIC, DEPTNO,DESIGNATION)
         {
            
@@ -176,8 +194,25 @@ namespace Assignment2
             this.BASIC = BASIC;
             this.DEPTNO = DEPTNO;
         }
-    }
 
+        public override decimal BASIC
+        {
+            set
+            {
+                if (value >= 10000 && value <= 1500000)
+                    basic = value;
+                else
+                    Console.WriteLine("Enter valid basic");
+            }
+            get
+            {
+                return basic;
+            }
+        }
+    }
+    #endregion
+
+    #region CEO
     public class CEO : Employee
     {
         public CEO(string NAME = "noname", decimal BASIC = 900000, short DEPTNO = 6) :base(NAME,BASIC,DEPTNO)
@@ -187,7 +222,20 @@ namespace Assignment2
             this.BASIC = BASIC;
             this.DEPTNO = DEPTNO;
         }
-        public override decimal BASIC { get ; set; }
+        public override decimal BASIC
+        {
+            set
+            {
+                if (value >= 10000 && value <= 1500000)
+                    basic = value;
+                else
+                    Console.WriteLine("Enter valid basic");
+            }
+            get
+            {
+                return basic;
+            }
+        }
 
         public sealed override decimal CalNetSalary()
         {
@@ -199,3 +247,4 @@ namespace Assignment2
     }
 
 }
+#endregion
