@@ -106,6 +106,19 @@ namespace Assignment4
             }
             Console.ReadLine();
 
+            Console.WriteLine("enter emp no tp search emp detail");
+            int empno = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < size; i++)
+            {
+                details = E[i];
+                if (empno == details.EmpNo)
+                {
+                    Console.WriteLine("Employee number = " + details.EmpNo);
+                    Console.WriteLine("Employee name = " + details.Name);
+                    Console.WriteLine("Employee Salary = " + details.Salary);
+                }
+            }
+
             Console.ReadLine();
         }
     }
