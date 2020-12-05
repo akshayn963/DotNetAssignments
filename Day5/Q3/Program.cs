@@ -43,11 +43,14 @@ namespace Question3
         private int RollNo;
         private decimal Marks;
 
-        public Student(string Name,int RollNo,decimal Marks)
+        public Student(string NAME,int ROLLNO,decimal MARKS)
         {
-            this.Name = Name;
-            this.RollNo = RollNo;
-            this.Marks = Marks;
+            this.Name = "noname";
+            this.RollNo = 1;
+            this.Marks = 1;
+            this.NAME = NAME;
+            this.ROLLNO = ROLLNO;
+            this.MARKS = MARKS;
             
         }
 
