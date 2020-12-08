@@ -13,7 +13,7 @@ namespace Assignment7
             Employee e = new Employee();
             
             Func<decimal, decimal, decimal, decimal> s1 = (P, N, R) => (P * R * N) / 100;
-            Console.WriteLine("Simple Interest = "+s1(100,5,10));
+            Console.WriteLine("Simple Interest = "+s1(10000,5,10));
 
             Console.WriteLine();
             Console.WriteLine();
@@ -24,7 +24,7 @@ namespace Assignment7
             Console.WriteLine();
             Console.WriteLine();
 
-            Func<Employee, decimal> bs = e1 => e1.basic;
+            Func<Employee, decimal> bs = e1 => e1.getBasic(e);
             Console.WriteLine("Basic Salary = "+bs(e));
 
             Console.WriteLine();
@@ -37,7 +37,7 @@ namespace Assignment7
             Console.WriteLine();
             Console.WriteLine();
 
-            Predicate<Employee> greater = e2 => e2.basic > 10000;
+            Predicate<Employee> greater = e2 => e2.IsGreaterThan10000(e);
            // Func<Employee, bool> greater = e2 => e2.basic > 10000;
             Console.WriteLine("IsGreater = "+greater(e));
 
@@ -64,12 +64,12 @@ namespace Assignment7
     {
         public decimal basic = 15000;
 
-       static decimal getBasic(Employee e)
+       public decimal getBasic(Employee e)
         {
             return e.basic;
         }
 
-        static bool IsGreaterThan10000(Employee e)
+        public bool IsGreaterThan10000(Employee e)
         {
             return e.basic > 10000;
         }
