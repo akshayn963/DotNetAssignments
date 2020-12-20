@@ -1,0 +1,60 @@
+﻿@model MVCAssignment.Models.User
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2 align="center">Login</h2>
+
+@using (Html.BeginForm("Login", "User", FormMethod.Post))
+{
+  
+    @Html.AntiForgeryToken() 
+    @Html.ValidationSummary(true)
+    if (@ViewBag.Message != null)
+    {
+        <div style="border:1px solid red">
+            @ViewBag.Message
+        </div>
+    }
+    <table align="center">
+        <tr>
+            <td>@Html.LabelFor(a => a.loginName)</td>
+            <td>@Html.TextBoxFor(a => a.loginName)</td>
+            <td>@Html.ValidationMessageFor(a => a.loginName)</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.password)
+            </td>
+
+            <td>
+                @Html.PasswordFor(a => a.password)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(a => a.password)
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Login" />
+            </td>
+           
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                @Html.CheckBoxFor(m => m.isActive)
+            </td>
+            <td><h4>Remember Me</h4></td>
+        </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("register", "Create")
+            </td>
+           
+        </tr>
+    </table>
+
+   
+}
